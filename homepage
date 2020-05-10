@@ -1,0 +1,94 @@
+import 'package:flutter/material.dart';
+import '../bloc.navigation_bloc/navigation_bloc.dart';
+
+
+
+ class HomePage extends StatelessWidget with NavigationStates {
+ @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: SafeArea(
+        child: ListView(
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.all(16.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        "      Whyte Plage",
+                        style: TextStyle(
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFb30000),
+                           ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 30),
+            Container(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(),
+                child: Container(
+                  width: 550.0,
+                  height: 140.0,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: NetworkImage(
+                            'https://www.airfrance.fr/FR/common/common/img/tbaf/news/RBA/skhirat-l-une-des-plus-belles-plages-du-monde/RBA-skhirat-l-une-des-plus-belles-plages-du-monde-2_1-1280x640.jpg')),
+                    borderRadius: BorderRadius.all(Radius.circular(26.0)),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 8.0),
+              child: Material(
+                elevation: 5.0,
+                child: TextField(
+                  decoration: InputDecoration(
+                      hintText: "Rechercher(Plages,Services...)",
+                      prefixIcon: Icon(Icons.location_on, color: Color(0xFFb30000)),
+                      border: InputBorder.none),
+                      cursorColor: Color(0xFFb30000),                    
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            FloatingActionButton(
+              onPressed: () {},
+              tooltip: 'choisir une image',
+              child: Icon(Icons.add_a_photo),
+            ),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Color(0xFFb30000),
+        currentIndex: 0,
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            title: Text("Acceuil")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.wb_cloudy),
+            title: Text("Météo")
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.new_releases),
+            title: Text("#Lactu")
+          ),
+        ],
+      ),
+    );
+  }
+}
